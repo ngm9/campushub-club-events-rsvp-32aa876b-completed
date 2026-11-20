@@ -19,7 +19,7 @@ export default function App() {
       }
     }
     loadEvents();
-  }, []);
+  }, [events]);
 
   async function handleRsvp(id) {
     setError('');
@@ -33,7 +33,7 @@ export default function App() {
       const updatedEvent = await res.json();
       const existing = events.find((e) => e.id === updatedEvent.id);
       existing.attendees = updatedEvent.attendees;
-      setEvents(events);
+      setEvents(existing);
     } catch (err) {
       setError('RSVP failed.');
     }
