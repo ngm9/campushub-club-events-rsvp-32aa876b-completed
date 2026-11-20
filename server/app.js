@@ -18,7 +18,7 @@ app.post('/api/events/:id/rsvp', (req, res) => {
     return res.status(404).json({ error: 'Event not found' });
   }
   if(event.capacity == event.attendees){
-    res.status(401);
+    res.status(409);
   }
   event.attendees = event.attendees + 1;
   
